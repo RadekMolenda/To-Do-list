@@ -14,12 +14,6 @@ describe TasksController do
       response.should be_success
     end
   end
-  describe "GET new" do
-    it "should be success when JSON format" do
-      get :new, format: :json
-      response.should be_success
-    end
-  end
   describe "GET edit" do
     it "should be success when JSON format" do
       task = FactoryGirl.create(:task)
@@ -28,14 +22,19 @@ describe TasksController do
     end
   end
   describe "POST create" do
-    describe "with valid params" do
-      it "creates a new post" do
-        pending
-        expect {
-          post :create, FactoryGirl.attributes_for(:task), format: :json
-        }.to change(Task, :count).by(1)
-      end
+    it "creates a new task" do
+      pending
+      expect {
+        post :create, FactoryGirl.attributes_for(:task)
+      }.to change(Task, :count).by(1)
     end
-
+  end
+  describe "DELETE destroy" do
+    it "deletes the task" do
+      task = FactoryGirl.create(:task)
+      expect {
+        delete :destroy, :id => task.to_param
+      }.to change(Task, :count).by(-1)
+    end
   end
 end

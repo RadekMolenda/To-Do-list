@@ -4,7 +4,8 @@ window.Todo =
   Views: {}
   Routers: {}
   init: ->
-    console.log 'Hello from Backbone!'
+    new Todo.Routers.Tasks()
+    Backbone.history.start()
 
 $(document).ready ->
   Todo.init()
