@@ -24,3 +24,4 @@ gem 'guard-cucumber',     group: :development
 gem 'bson_ext'
 gem 'mongoid'
 gem 'haml'
+gem 'backbone-on-rails'
