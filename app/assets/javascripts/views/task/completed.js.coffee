@@ -10,6 +10,13 @@ class Todo.Views.TaskCompleted extends Backbone.View
     @$el.html @template(task: @model)
     this
 
+  events:
+    "click .delete"       : "deleteTask"
+
+  deleteTask: (event)->
+    @model.destroy()
+    @rerender()
+
   rerender: ->
-    ($ "#container").html Todo.TasksIndexView.render().el
+    Todo.TasksIndexView.render()
 
