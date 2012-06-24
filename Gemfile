@@ -19,6 +19,8 @@ gem 'factory_girl_rails', group: [:development, :test]
 gem 'cucumber-rails',     group: :test, require: false
 gem 'capybara',           group: :test
 gem 'launchy',            group: :test
+gem 'guard-rspec',        group: :development
+gem 'guard-cucumber',     group: :development
 gem 'bson_ext'
 gem 'mongoid'
 gem 'haml'
