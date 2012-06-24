@@ -1,1 +1,1 @@
-<s><%= @task.get('description') %></s><
+<s><%= @task.get('description') %></s><span><%= @task.get('deadline') %></span>

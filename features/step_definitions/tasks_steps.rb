@@ -10,6 +10,14 @@ When /^I submit form$/ do
   find(:xpath, "//input[@type='submit']").click
 end
 
-Then /^I should see "(.*?)" in incomplete tasks list$/ do |task_description|
+Then /^I should see "(.*?)" in incompleted tasks list$/ do |task_description|
   page.should have_xpath("//ul[@id='incompleted']/li[contains(.,'#{task_description}')]")
+end
+
+When /^I set the deadline to "(.*?)"$/ do |date|
+  fill_in "deadline", with: date
+end
+
+Then /^I should see the deadline "(.*?)"$/ do |date|
+  page.should have_xpath("//ul[@id='incompleted']/li/span[contains(.,'#{date}')]")
 end

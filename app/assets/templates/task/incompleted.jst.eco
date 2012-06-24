@@ -1,1 +1,1 @@
-<%= @task.get('description') %>
+<%= @task.get('description') %><span><%= @task.get('deadline') %></span>

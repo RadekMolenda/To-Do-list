@@ -8,7 +8,15 @@ Feature: Tasks
     Given I am on the home page
 
     @javascript
-  Scenario: Creating simple tasks
+  Scenario: Adding simple tasks
     When I add task "Make tea"
     And I submit form
-    Then I should see "Make tea" in incomplete tasks list
+    Then I should see "Make tea" in incompleted tasks list
+
+    @javascript
+  Scenario: Adding tasks with deadline
+    When I add task "Make coffee"
+    And I set the deadline to "2012-12-01 15:00:00"
+    And I submit form
+    Then I should see "Make coffee" in incompleted tasks list
+    And I should see the deadline "2012-12-01T15:00:00Z"

@@ -26,9 +26,11 @@ class Todo.Views.TasksIndex extends Backbone.View
 
   events:
     "submit form"         :"addTask"
-    "click input#submit"  :"addTask"
 
   addTask: (event)->
     event.preventDefault()
-    @collection.create({description: @$el.find("#new_task").val()})
+    @collection.create
+      description: @$el.find("#new_task").val()
+      deadline: @$el.find("#deadline").val()
+      { wait: true }
 
