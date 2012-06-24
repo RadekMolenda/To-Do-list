@@ -21,3 +21,4 @@ gem 'capybara',           group: :test
 gem 'launchy',            group: :test
 gem 'bson_ext'
 gem 'mongoid'
+gem 'haml'
