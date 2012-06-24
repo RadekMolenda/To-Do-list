@@ -5,7 +5,7 @@ describe "home/index" do
     render
   end
   it "should have input#new_task" do
-    rendered.should have_css("input#new_task")
+    rendered.should have_css("form input#new_task")
   end
   it "should have the right header" do
     rendered.should have_content("To Do List")

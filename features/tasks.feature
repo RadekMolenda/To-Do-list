@@ -7,7 +7,8 @@ Feature: Tasks
     #It will be single page app so all the scenarios starts at Home page
     Given I am on the home page
 
+    @javascript
   Scenario: Creating simple tasks
     When I add task "Make tea"
-    And I hit enter
+    And I submit form
     Then I should see "Make tea" in incomplete tasks list
