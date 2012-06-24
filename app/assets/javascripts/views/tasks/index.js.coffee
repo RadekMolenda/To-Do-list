@@ -4,6 +4,7 @@ class Todo.Views.TasksIndex extends Backbone.View
 
   initialize: ->
     @collection.on('reset', @render, this)
+    @collection.on('add', @render, this)
 
   render: ->
     @$el.html @template()
@@ -22,3 +23,12 @@ class Todo.Views.TasksIndex extends Backbone.View
       el: @$el.find('#completed')
       collection: @collection.completed()
     view.render()
+
+  events:
+    "submit form"         :"addTask"
+    "click input#submit"  :"addTask"
+
+  addTask: (event)->
+    event.preventDefault()
+    @collection.create({description: @$el.find("#new_task").val()})
+

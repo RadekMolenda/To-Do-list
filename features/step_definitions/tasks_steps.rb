@@ -7,9 +7,9 @@ When /^I add task "(.*?)"$/ do |task_description|
 end
 
 When /^I submit form$/ do
-  page.evaluate_script("document.forms[0].submit()")
+  find(:xpath, "//input[@type='submit']").click
 end
 
 Then /^I should see "(.*?)" in incomplete tasks list$/ do |task_description|
-  page.should have_xpath("//div[@id='incompleted']/ul/li[contains(., '#{task_description}')]")
+  page.should have_xpath("//ul[@id='incompleted']/li[contains(.,'#{task_description}')]")
 end

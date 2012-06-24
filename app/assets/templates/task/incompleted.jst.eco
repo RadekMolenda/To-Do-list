@@ -1,1 +1,1 @@
-<li><%= @task.get('description') %></li>
+<%= @task.get('description') %>

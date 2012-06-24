@@ -1,4 +1,5 @@
 class Todo.Views.TaskIncompleted extends Backbone.View
+  tagName: "li"
   template: JST['task/incompleted']
 
   initialize: ->

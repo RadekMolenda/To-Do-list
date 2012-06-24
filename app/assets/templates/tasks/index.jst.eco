@@ -1,3 +1,7 @@
+<form>
+  <input id="new_task" name="new_task" type="text">
+  <input id="submit" type="submit">
+</form>
 <div>
 <ul id="incompleted">
 </ul>
