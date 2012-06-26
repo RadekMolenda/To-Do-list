@@ -1,2 +1,2 @@
-<s><%= @task.get('description') %></s><span><%= @task.get('deadline') %></span>
+<input type="checkbox" name="not-done" class="not-done" checked="checked"><s><%= @task.get('description') %></s><span><%= @task.get('deadline') %></span>
 <span class="delete">delete</span>
