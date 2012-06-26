@@ -27,7 +27,6 @@ class Todo.Views.TaskIncompleted extends Backbone.View
     event.preventDefault()
     @model.save
       description: @$el.find('.edit-description').val()
-      deadline: @$el.find('.edit-deadline').val()
       { wait: true }
     @render()
 

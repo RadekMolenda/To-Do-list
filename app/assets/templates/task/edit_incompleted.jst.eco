@@ -1,4 +1,3 @@
 <input type="text" name="edit-description" value="<%= @task.get('description') %>" class="edit-description">
-<input class="edit-deadline" value="<%= @task.get('deadline') %>" type="text">
 <button class="save">save</button>
 <button class="cancel">cancel</button>
