@@ -1,6 +1,4 @@
-class TasksController < ApplicationController
-  respond_to :json
-
+class Api::TasksController < Api::BaseController
   def index
     respond_with Task.all
   end
@@ -12,7 +10,12 @@ class TasksController < ApplicationController
   end
 
   def create
-    respond_with Task.create(params[:task])
+    task = Task.create(params[:task])
+    if task.valid?
+      respond_with task, location: api_task_path(task)
+    else
+      respond_with task
+    end
   end
   def update
     task = Task.find(params[:id])
