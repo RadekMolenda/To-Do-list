@@ -49,4 +49,37 @@ describe "api/tasks", :type => :api do
       last_response.status.should eql(200)
     end
   end
+  context "updating task" do
+    let(:url) { "/api/tasks/#{@task.id}"}
+    it "should be successful" do
+      @task.description.should eql("MyString")
+
+      put "#{url}.json",  :task => {
+                            :description => "Make delicious cake"
+                          }
+      last_response.status.should eql(204)
+      @task.reload
+      @task.description.should eql("Make delicious cake")
+    end
+    it "should be unsuccessful with invalid attributes" do
+      @task.description.should eql("MyString")
+      put "#{url}.json",  :task => {
+                            :description => ""
+                          }
+      last_response.status.should eql(422)
+      @task.reload
+      @task.description.should eql("MyString")
+      errors = {"errors" => {"description" => ["can't be blank"]}}.to_json
+      last_response.body.should eql(errors)
+    end
+  end
+
+  context "deleting a task" do
+    let(:url) { "/api/tasks/#{@task.id}"}
+    it "should be successful" do
+      delete ("#{url}.json")
+      last_response.status.should eql(204)
+    end
+  end
+
 end

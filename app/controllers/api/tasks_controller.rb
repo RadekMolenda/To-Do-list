@@ -5,10 +5,6 @@ class Api::TasksController < Api::BaseController
   def show
     respond_with Task.find(params[:id])
   end
-  def edit
-    respond_with Task.find(params[:id])
-  end
-
   def create
     task = Task.create(params[:task])
     if task.valid?
@@ -24,6 +20,7 @@ class Api::TasksController < Api::BaseController
   end
   def destroy
     task = Task.find(params[:id])
-    respond_with task.delete
+    task.delete
+    respond_with task
   end
 end
