@@ -19,4 +19,11 @@ Feature: Tasks
     And I set the deadline to "2012-12-01 15:00:00"
     And I submit form
     Then I should see "Make coffee" in incompleted tasks list
-    And I should see the deadline "2012-12-01T15:00:00Z"
+
+    @javascript
+  Scenario: Editing Task
+    Given I have an incomplete task "Make cake" in the database
+    When I click on element ".description"
+    And I fill in "Make delicious cake"
+    And I click on "save"
+    Then I should see "Make delicious cake" in incompleted tasks list

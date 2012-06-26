@@ -15,13 +15,6 @@ class Todo.Views.TaskIncompleted extends Backbone.View
   rerender: ->
     Todo.TasksIndexView.render()
 
-  events:
-    "click .description": "editTask"
-    "click .save"       : "updateTask"
-    "click .cancel"     : "cancelUpdate"
-    "click .done"       : "markAsDone"
-    "click .delete"       : "deleteTask"
-
   deleteTask: (event)->
     @model.destroy()
     @rerender()
@@ -46,3 +39,10 @@ class Todo.Views.TaskIncompleted extends Backbone.View
     @model.save
       completed: true
       { wait: true }
+
+  events:
+    "click .description": "editTask"
+    "click .save"       : "updateTask"
+    "click .cancel"     : "cancelUpdate"
+    "click .done"       : "markAsDone"
+    "click .delete"     : "deleteTask"

@@ -21,3 +21,19 @@ end
 Then /^I should see the deadline "(.*?)"$/ do |date|
   page.should have_xpath("//ul[@id='incompleted']/li/span[contains(.,'#{date}')]")
 end
+
+Given /^I have an incomplete task "(.*?)" in the database$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^I click on element "(.*?)"$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^I fill in "(.*?)"$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^I click on "(.*?)"$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
