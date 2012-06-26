@@ -2,9 +2,81 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 p, span, label, li, input {
-  font-family: 'Balthazar', serif;
-}
+  @include text-shadow(rgba(gray, 0.2) 1px 1px 0, rgba(gray, 0.2) 2px 2px 0, rgba(gray, 0.2) 3px 3px 0);
+  font-family: 'Balthazar', serif;}
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Belgrano', serif;
+  @include text-shadow(rgba(gray, 0.2) 1px 1px 0, rgba(gray, 0.2) 2px 2px 0, rgba(gray, 0.2) 3px 3px 0);
+  font-family: 'Belgrano', serif;}
+li{
+  @include no-bullet;
+  font-size: 150%;
+  width: 380px;
+  margin: 0 10px;
+  display: block;
+  padding: 7px 0;
+  border-bottom: dashed 1px gray;
+}
+li .delete{
+  @include no-bullet;
+  font-size: 50%;
+  color: red;
+  cursor: pointer;
+}
+#wrapper {
+  width: 500px;
+  margin: 0 auto;
+  padding: 10px 0;
+  text-align: center;
+  @include border-radius(5px);
+  @include single-box-shadow;
+  @include background-image(linear-gradient(#ccc, #ddd, white));
+  height: 100%;}
+
+#body {
+  text-align: left;
+  width: 400px;
+  margin: 0 auto;
+}
+ul{
+  padding: 0;
+  margin: 0;
+}
+#incompleted{
+  margin-top: 10px;
 }
 
+#incompleted input[type=text] {
+  font-size: 100%;
+  height: 30px;
+  border: none;
+  padding: 0;
+  margin-left: 25px;
+  width: 220px;
+}
+
+#incompleted li{
+  color: #222;
+}
+#completed li{
+  color: #777;
+}
+input{
+  font-size: 150%;
+}
+input[type=text]{
+  width: 270px;
+  padding-left: 30px;
+  height: 40px;
+  border: solid 1px gray;
+  @include border-radius(4px)
+}
+input[type=submit]{
+  height: 43px;
+  margin-left: 10px;
+  width: 80px;
+  color: gray;
+
+}
+#completed{
+  margin-top: 10px;
+}
